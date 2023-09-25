@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import '../../css/ContactPage.css'
 import axios from "axios";
+import '../../css/ContactPage.css'; // Import your CSS file here
 
 function Contact({ onContactSubmit }) {
   const [fullname, setFullname] = useState("");
@@ -48,18 +48,53 @@ function Contact({ onContactSubmit }) {
 
   return (
     <div>
+      <head>
+        {/* Link to Font Awesome CSS */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha384-rREp4zBpF1jB2jzEPlT9z/ZyAdcpwZfdCGw5H0fzXvRYD5pG5jtn9OMs5F5W5Zt5w"
+          crossOrigin="anonymous"
+        />
+      </head>
       <section className="contact">
         <div className="content">
-          <h2><strong> CONTACT US</strong></h2>
+          <h2><strong>CONTACT US</strong></h2>
           <p>You can contact us from here. Join with us for this noble cause.</p>
         </div>
         <div className="container-contact">
           <div className="contact-info">
-            {/* ... (rest of your code) */}
+            <div className="box">
+              <div className="icon">
+                <i className="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div className="text">
+                <h3>Address</h3>
+                <p>4671 Sugar Camp Road, Chakala, Andheri, 400096</p>
+              </div>
+            </div>
+            <div className="box">
+              <div className="icon">
+                <i className="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div className="text">
+                <h3>Phone</h3>
+                <p>9898-5555-6458</p>
+              </div>
+            </div>
+            <div className="box">
+              <div className="icon">
+                <i className="fa fa-envelope-o" aria-hidden="true"></i>
+              </div>
+              <div className="text">
+                <h3>Email</h3>
+                <p>ecofiestafinds@gmail.com</p>
+              </div>
+            </div>
           </div>
           <div className="contact-form">
             <form onSubmit={handleSubmit}>
-              <h2> Send Message</h2>
+              <h2>Send Message</h2>
               <div className="inputBox">
                 <input
                   type="text"
