@@ -1,0 +1,75 @@
+/* Styling for navigation links */
+.nav-link {
+  font-weight: bold;
+  /* Bold text */
+  transition: color 0.3s ease;
+  /* Smooth color transition on hover */
+  text-decoration: none;
+  /* Remove underline from links */
+  padding: 10px 15px;
+  /* Padding for links */
+  position: relative;
+  /* Pseudo-element positioning context */
+}
+
+/* Underline effect for navigation links */
+.nav-link:before {
+  content: "";
+  /* Empty pseudo-element */
+  position: absolute;
+  /* Absolute positioning */
+  bottom: 0;
+  /* Positioned at the bottom */
+  left: 0;
+  /* Positioned at the left */
+  width: 100%;
+  /* Full width */
+  height: 2px;
+  /* Underline height */
+  background: yellow;
+  /* Yellow underline */
+  transform: scaleX(0);
+  /* Initially hidden */
+  transform-origin: bottom right;
+  /* Transform origin */
+  transition: transform 0.3s ease;
+  /* Smooth transform transition */
+}
+
+/* Hover effect: Show the underline */
+.nav-link:hover:before {
+  transform: scaleX(1);
+  /* Scale to full width on hover */
+  transform-origin: bottom left;
+  /* Change transform origin */
+}
+
+/* Active link: Keep the underline */
+.nav-link.active-link:before {
+  transform: scaleX(1);
+  /* Maintain the underline */
+  transform-origin: bottom left;
+  /* Maintain transform origin */
+}
+
+/* Hover effect: Change text color to yellow */
+.nav-link:hover {
+  color: yellow;
+  /* Yellow text color on hover */
+}
+
+/* Styling for custom outline buttons with dark background */
+.btn-custom-outline-dark {
+  background-color: dark;
+  /* Dark background */
+  border-color: #e5ff00;
+  /* Border color */
+  color: #fffb00;
+  /* Text color */
+}
+
+
+.white-text {
+  color: white;
+  /* Set the text color to white */
+}

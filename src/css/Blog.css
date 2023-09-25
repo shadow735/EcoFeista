@@ -1,0 +1,56 @@
+/* styles.css */
+
+.blog-container {
+    text-align: center;
+    width: 90%;
+  }
+  
+  .blog-title {
+    font-size: 30px; /* Increase title font size for emphasis */
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333; /* Darken the title color */
+    text-transform: uppercase; /* Uppercase title text */
+  }
+  
+  .blog-list {
+    list-style: none;
+    padding: 20px;
+  }
+  
+  .blog-post {
+    background-color: #f9f9f9; /* Lighter background color */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Increase border radius for a rounded appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    margin: 50px 0;
+    padding: 20px;
+    text-align: left;
+
+  }
+  
+  .blog-post-title {
+    font-size: 35px; /* Larger title font size */
+    margin-bottom: 15px; /* Slightly more spacing below the title */
+    font-weight: bold; /* Set font-weight to bold for the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ff6600; /* Change title color to an attractive orange */
+  }
+  
+  
+  
+  .blog-post-content {
+    font-size: 18px; /* Slightly larger content font size */
+    color: #333; /* Dark text color for content */
+    text-align: justify; /* Justify text for better readability */
+    margin-top: 15px; /* Add more spacing above content */
+    line-height: 1.8; /* Adjust line height for readability */
+    font-weight: normal; /* Set font-weight to normal (not bold) for content */
+  }
+  
+  .blog-post-content p {
+    margin-bottom: 15px; /* More spacing between paragraphs */
+  }
+  
+  /* Add any other styles or animations as needed */
+  

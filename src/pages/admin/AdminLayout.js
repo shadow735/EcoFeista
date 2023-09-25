@@ -1,24 +1,31 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Sidebar from '../../components/Sidebar'; // Import the admin sidebar component
-import SummaryPage from './SummaryPage'; // Import admin-specific pages
+import { Route, Routes } from 'react-router-dom';
+import Sidebar from '../../components/common/Sidebar';
+import SummaryPage from './SummaryPage';
 import ProductPage from './ProductPage';
 import OrderPage from './OrderPage';
 import UserPage from './UserPage';
-
+import ContactPage from './ContactPage';
+import App from './App'
+import BlogPage from './Blog';
 function AdminLayout() {
   return (
     <div className="admin-layout">
-      <Sidebar /> {/* Render the admin sidebar */}
-      <main className="admin-content">
-        <Switch>
-          <Route path="/admin" exact component={SummaryPage} />
-          <Route path="/admin/products" component={ProductPage} />
-          <Route path="/admin/orders" component={OrderPage} />
-          <Route path="/admin/users" component={UserPage} />
-          {/* Add more routes for other admin-specific pages */}
-        </Switch>
-      </main>
+      <div className="admin-container">
+        <Sidebar />
+        <main className="admin-content">
+          <Routes>
+            <Route index element={<SummaryPage />} />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/orders" element={<OrderPage />} />
+            <Route path="/users" element={<UserPage />} />
+            <Route path="/contacts" element={<ContactPage />} />
+            <Route path="/app" element={<App />} />
+            <Route path="/blog" element={<BlogPage />} />
+
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }

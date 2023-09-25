@@ -1,0 +1,18 @@
+/* Apply these styles to your container element */
+
+
+/* Apply these styles to your footer */
+.footer {
+  background-color: #333;
+  /* Adjust the background color as needed */
+  color: #fff;
+  /* Adjust the text color as needed */
+  padding: 2px;
+  /* Add padding to the footer content */
+  text-align: center;
+  /* Center the content horizontally */
+  margin-bottom: 0%;
+  margin-top: auto;
+
+
+}

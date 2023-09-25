@@ -1,0 +1,46 @@
+/* brand links styling */
+.brand-links {
+  list-style: none;
+  padding: 0;
+}
+
+.brand-links li {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.brand-links li.active {
+  background-color: #ffcc00;
+  /* Highlight the active brand */
+}
+
+/* Product card styling */
+.product-card {
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  /* Add a slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Book button styling */
+.book-button {
+  background-color: #ffcc00;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.book-button:hover {
+  background-color: #ffc300;
+  /* Change button color on hover */
+}

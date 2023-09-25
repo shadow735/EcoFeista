@@ -1,27 +1,38 @@
+// UserLayout.js
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Header from '../../components/Header'; // Import the header component
-import Navbar from '../../components/Navbar'; // Import the navbar component
-import HomePage from './HomePage'; // Import user-specific pages
+import { Route, Routes } from 'react-router-dom';
+import Header from '../../components/common/Header';
+import Footer from '../../components/common/Footer';
+import HomePage from './HomePage';
 import ProductListPage from './ProductListPage';
 import ContactPage from './ContactPage';
 import BlogPage from './BlogPage';
+import AboutPage from './AboutPage';
+import Login from './Login';
+import SignupContainer from './SignUp';
+import CartPage from './Cart';
 
 function UserLayout() {
   return (
+
     <div className="user-layout">
-      <Header /> {/* Render the header */}
-      <Navbar /> {/* Render the navbar */}
+      <Header />
+
       <main className="user-content">
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/products" component={ProductListPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/blog" component={BlogPage} />
-          {/* Add more routes for other user-specific pages */}
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductListPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignupContainer />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
       </main>
+      <Footer />
     </div>
+
   );
 }
 
