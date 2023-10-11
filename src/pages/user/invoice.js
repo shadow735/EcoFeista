@@ -167,7 +167,7 @@ function Invoice() {
         <div className="header">
           <div className="logo">
             <img
-              src="/media/logo.jpg"
+            
               alt="Logo"
               width="100"
               height="60"
