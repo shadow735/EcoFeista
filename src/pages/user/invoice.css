@@ -1,0 +1,67 @@
+/* CSS for the Invoice component */
+
+.invoice {
+    padding-bottom: 40px;
+  }
+  
+  .custom-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo-img {
+    margin-right: 10px;
+  }
+  
+  .customer-details,
+  .order-summary {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+  }
+  
+  .customer-list,
+  .cost-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .customer-item,
+  .cost-item {
+    margin-bottom: 10px;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .total-cost {
+    font-size: 1.25rem;
+  }
+  
+  .total-cost p {
+    margin: 0;
+  }
+  
+  /* Add this CSS to your invoice.css */
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  

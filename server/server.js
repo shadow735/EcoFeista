@@ -4,28 +4,34 @@ const app = express();
 const bodyParser = require('body-parser');
 const { connectToDatabase } = require('./config/config');
 const mongoose = require('mongoose');
-const imageRoute = require('./routes/image');
+const path = require('path');
+
 // Import models
 const User = require('./models/User');
 const Contact = require('./models/Contact');
-const path = require('path');
+const Blog = require('./models/Blog');
+const Cart = require('./models/Cart');
+
 // Import routes
 const userAuthRoutes = require('./routes/userAuth');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const adminAuthRoutes = require('./routes/adminAuth');
+const cartRoutes = require('./routes/cart');
 const Blogs = require('./routes/Blog');
-const Blog = require('./models/Blog');
+const imageRoute = require('./routes/image');
+const orderRoutes = require('./routes/orderRoutes');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' })); // Increase the payload limit to 50MB
+
 // Serve uploaded images statically from the data/images directory
-app.use('/api/images/uploads', express.static('../data/images'));
+app.use('/api/images/uploads', express.static(path.join(__dirname, '../data/images')));
 
 // Connect to the database
 connectToDatabase().catch((err) => {
@@ -38,8 +44,11 @@ app.use('/user', userRoutes); // User routes
 app.use('/contact', contactRoutes); // Contact routes
 app.use('/products', productRoutes); // Product routes
 app.use('/user', userAuthRoutes); // User authentication routes
-app.use('/blog', Blogs); // User authentication routes
+app.use('/blog', Blogs); // Blog routes
+app.use('/cart', cartRoutes); // Cart routes
 app.use('/api/images', imageRoute);
+app.use('/', orderRoutes);
+
 // Get all contacts
 app.get('/contacts', async (req, res) => {
   try {
@@ -53,13 +62,31 @@ app.get('/contacts', async (req, res) => {
 });
 
 // Get all users
-app.get('/user', async (req, res) => {
+app.get('/users', async (req, res) => {
   try {
     // Retrieve all users from the database
     const users = await User.find();
     res.json(users);
   } catch (error) {
     console.error('Error fetching users:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Handle base64-encoded image data
+app.post('/upload', (req, res) => {
+  try {
+    const { image } = req.body; // Base64-encoded image data
+
+    if (!image) {
+      return res.status(400).json({ error: 'No image data provided' });
+    }
+
+    // Handle the base64-encoded image data, e.g., save it to a file or a database
+
+    res.status(200).json({ message: 'Image data received and processed successfully' });
+  } catch (error) {
+    console.error('Error handling image data:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

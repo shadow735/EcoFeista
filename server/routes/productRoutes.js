@@ -27,12 +27,23 @@ router.post('/create', async (req, res) => {
 });
 
 
-// Route for fetching all products
 router.get('/', async (req, res) => {
   try {
     // Retrieve all products from the database
     const products = await Product.find();
-    res.json(products);
+
+    // Map products to include image data
+    const productsWithImageData = products.map((product) => ({
+      _id: product._id,
+      brand: product.brand,
+      name: product.name,
+      price: product.price,
+      desc: product.desc,
+      // Include the image data as a base64-encoded string
+      image: product.image.toString('base64'),
+    }));
+
+    res.json(productsWithImageData);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -82,3 +93,32 @@ router.delete('/delete/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
+
+
+// Route for fetching all products
+router.get('/products', async (req, res) => {
+  try {
+    // Retrieve all products from the database
+    const products = await Product.find();
+
+    // Map products to include image data (base64-encoded)
+    const productsWithImageData = products.map((product) => ({
+      _id: product._id,
+      brand: product.brand,
+      name: product.name,
+      price: product.price,
+      desc: product.desc,
+      // Convert the image buffer to a base64-encoded string
+      image: product.image.toString('base64'),
+    }));
+
+    res.json(productsWithImageData);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});

@@ -64,45 +64,40 @@ function ProductPage() {
     }
   };
 
-  // Group products by brand
-  const productsByBrand = createdProducts.reduce((acc, product) => {
-    const brand = product.brand;
-    if (!acc[brand]) {
-      acc[brand] = [];
-    }
-    acc[brand].push(product);
-    return acc;
-  }, {});
+ 
+  const renderImages = (imageData) => {
+    return (
+      <img
+        src={imageData}
+        alt="Product"
+        style={{ maxWidth: '100px', maxHeight: '100px' }}
+      />
+    );
+  };
 
   return (
     <div className="ProductContent">
       <Product onProductSubmit={handleProductSubmit} />
       <div className="CreatedProducts">
-        {Object.keys(productsByBrand).map((brand) => (
-          <div key={brand}>
-            <h3>{brand}</h3>
-            <div className="ProductRow">
-              {productsByBrand[brand].map((product) => (
-                <div key={product._id} className="ProductCard">
-                  <h2>{product.name}</h2>
-                  <p>
-                    Price: ₹{' '}
-                    <input
-                      type="number"
-                      value={product.price}
-                      onChange={(e) =>
-                        handlePriceChange(product._id, parseFloat(e.target.value))
-                      }
-                    />
-                  </p>
-                  <p>{product.desc}</p>
-                  <img src={product.image} alt="Product" />
-                  <button onClick={() => deleteProduct(product._id)} className="DeleteButton">
-                    Delete
-                  </button>
-                </div>
-              ))}
-            </div>
+        {createdProducts.map((product) => (
+          <div key={product._id} className="ProductCard">
+            <h2>{product.name}</h2>
+            <p>
+              Price: ₹{' '}
+              <input
+                type="number"
+                value={product.price}
+                onChange={(e) =>
+                  handlePriceChange(product._id, parseFloat(e.target.value))
+                }
+              />
+            </p>
+            <p>{product.desc}</p>
+            {/* Render the decoded image */}
+            {renderImages(product.image)}
+            <button onClick={() => deleteProduct(product._id)} className="DeleteButton">
+              Delete
+            </button>
           </div>
         ))}
       </div>

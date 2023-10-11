@@ -26,7 +26,8 @@ function Header() {
               <Nav.Link as={Link} to="/products">Product</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
               <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/admin/login">Admin</Nav.Link>
+              <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+             
             </Nav>
             {/* Display the user's name if available */}
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/BlogPage.css';
-import { ChildComponent1, ChildComponent2, ChildComponent3, ChildComponent4, ChildComponent5, ChildComponent6 } from '../../components/user/Blog'; // Import the child components
+import { ChildComponent1, ChildComponent2, ChildComponent3, ChildComponent4, ChildComponent5, ChildComponent6,ChildComponent7 } from '../../components/user/Blog'; // Import the child components
 
 const BlogSidebar = () => {
   const [currentTab, setCurrentTab] = useState('tab1');
@@ -18,13 +18,13 @@ const BlogSidebar = () => {
           className={currentTab === 'tab1' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab1')}
         >
-          Festival 1
+         Diwali
         </div>
         <div
           className={currentTab === 'tab2' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab2')}
         >
-          Festival 2
+         Dussehra
         </div>
         {/* Add more links for other tabs */}
 
@@ -32,29 +32,37 @@ const BlogSidebar = () => {
           className={currentTab === 'tab3' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab3')}
         >
-          Festival 3
+          Ganesh Chaturthi
         </div>
 
         <div
           className={currentTab === 'tab4' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab4')}
         >
-          Festival 4
+         Janmashtami
         </div>
 
         <div
           className={currentTab === 'tab5' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab5')}
         >
-          Festival 5
+          Gudi Padwa
         </div>
 
         <div
           className={currentTab === 'tab6' ? 'link-active' : 'link-inactive'}
           onClick={() => handleLinkClick('tab6')}
         >
-          Festival 6
+          Maha Shivratri
         </div>
+
+        <div
+          className={currentTab === 'tab5' ? 'link-active' : 'link-inactive'}
+          onClick={() => handleLinkClick('tab5')}
+        >
+          Holi
+        </div>
+
       </div>
       {/* Render the child components based on the selected tab */}
       {currentTab === 'tab1' && <ChildComponent1 />}
@@ -63,6 +71,7 @@ const BlogSidebar = () => {
       {currentTab === 'tab4' && <ChildComponent4 />}
       {currentTab === 'tab5' && <ChildComponent5 />}
       {currentTab === 'tab6' && <ChildComponent6 />}
+      {currentTab === 'tab7' && <ChildComponent7 />}
       {/* Add more conditionally rendered components for other tabs */}
     </div>
   );

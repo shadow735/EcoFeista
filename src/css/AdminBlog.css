@@ -69,6 +69,7 @@ select:focus {
 /* Styling for blog content */
 .blog-content {
   margin-top: 20px;
+ 
 }
 
 .blog-post {
@@ -78,6 +79,7 @@ select:focus {
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
+  
 }
 
 .post-title {
@@ -89,6 +91,7 @@ select:focus {
 .post-content {
   font-size: 16px;
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 .post-brand {
@@ -142,6 +145,7 @@ select:focus {
   line-height: 1.5; /* Adjust the line height for readability */
   text-align: left; /* Align the text to the left */
   margin-top: 10px; /* Add spacing between content and buttons */
+  text-align: justify;
 }
 
 .post-brand {

@@ -105,8 +105,13 @@ function BlogPage() {
               value={brand}
             >
               <option value="">Select Festival</option>
-              <option value="festival1">Festival 1</option>
-              <option value="festival2">Festival 2</option>
+              <option value="Diwali">Diwali</option>
+              <option value="Dussehra">Dussehra</option>
+              <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
+              <option value="Janmashtami">Janmashtami</option>
+              <option value="Gudi Padwa">Gudi Padwa</option>
+              <option value="Maha Shivratri">Maha Shivratri</option>
+              <option value="Holi">Holi</option>
               {/* Add more festival options here */}
             </select>
           </div>

@@ -11,7 +11,8 @@ import AboutPage from './AboutPage';
 import Login from './Login';
 import SignupContainer from './SignUp';
 import CartPage from './Cart';
-
+import BillingPage from './BillingPage'; 
+import Invoice from './invoice';
 function UserLayout() {
   return (
 
@@ -28,6 +29,8 @@ function UserLayout() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignupContainer />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/billing" element={<BillingPage/>} />
+          <Route path="/invoice" element={<Invoice/>} />
         </Routes>
       </main>
       <Footer />

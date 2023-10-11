@@ -1,0 +1,134 @@
+/* CartPage.css */
+
+.clear-button {
+  background-color: #f92500; /* Tomato red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 8px; /* Slightly larger padding */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 100px;
+}
+
+.clear-button:hover {
+  background-color: #ff4500; /* Orange-red on hover */
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light gray background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 12px; /* Slightly larger padding */
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Lighter border color */
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e2e6ea;
+}
+
+.cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.table-container:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  height: 85vh;
+  overflow-y: auto;
+}
+
+.place-order-button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px; /* Slightly larger padding */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+  margin-top: 10px;
+  width: 120px; /* Adjust the width as needed */
+}
+
+.place-order-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Add this CSS to your CartPage.css file */
+
+.total-amount {
+  text-align: left; /* Align the total amount to the left */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  flex-grow: 1; /* Make it take up available space */
+}
+
+/* CartPage.css */
+
+/* Style the cart container */
+.cart-container {
+  display: flex;
+  justify-content: center;
+  
+  height: 85vh;
+}
+
+/* Style the cart box */
+.cart-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+

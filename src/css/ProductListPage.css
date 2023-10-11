@@ -22,12 +22,16 @@
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 20px;
+  overflow: hidden; /* Hide overflowing shadows */
+  position: relative; /* Required for shadow */
+  z-index: 1; /* Required for shadow */
+
 }
 
 .product-card:hover {
   transform: translateY(-5px);
   /* Add a slight lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
 }
 
 /* Book button styling */
@@ -44,3 +48,24 @@
   background-color: #ffc300;
   /* Change button color on hover */
 }
+
+/* Product image styling */
+.product-image {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1); /* Zoom in on hover */
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.product-price {
+  font-weight: bold;
+  font-size: 1.2rem; 
+}
+
+

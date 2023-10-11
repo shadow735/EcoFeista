@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
   desc: String,
-  image: Buffer, // Add an image field of type Buffer
+  image: String, // Add an image field of type Buffer
 });
 
 const Product = mongoose.model('Product', productSchema);
