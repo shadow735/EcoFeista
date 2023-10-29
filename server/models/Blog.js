@@ -6,6 +6,7 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
   brand: { // Add the "brand" field
     type: String,
     required: true,

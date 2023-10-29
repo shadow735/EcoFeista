@@ -79,13 +79,13 @@ function ChildComponent3() {
   }, []);
 
   return (
-    <div>
-      <h2>Ganesh Chaturthi</h2>
-      <ul>
+    <div className="blog-container">
+      <h2 className="blog-title">Ganesh Chaturthi</h2>
+      <ul className="blog-list">
         {blogData.map(post => (
-          <li key={post._id}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
+          <li key={post._id} className="blog-post">
+            <h2 className="blog-post-title">{post.title}</h2>
+            <p className="blog-post-content">{post.content}</p>
           </li>
         ))}
       </ul>
@@ -131,7 +131,7 @@ function ChildComponent5() {
       .then(response => response.json())
       .then(data => {
         // Filter the data to include only items with brand: 'festival1'
-        const filteredData = data.filter(post => post.brand === 'Gudi Padwaestival5');
+        const filteredData = data.filter(post => post.brand === 'Gudi Padwa');
         setBlogData(filteredData);
       })
       .catch(error => console.error('Error fetching data:', error));

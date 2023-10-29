@@ -31,19 +31,7 @@ function Header() {
             </Nav>
             {/* Display the user's name if available */}
 
-            {/* Login button */}
-
-            <div className="text-end">
-              <Link
-                to="/login"
-                role="button"
-                className="btn btn-custom-outline-dark"
-                onMouseEnter={(e) => (e.target.style.color = '#fff')}
-                onMouseLeave={(e) => (e.target.style.color = 'yellow')}
-              >
-                Login
-              </Link>
-            </div>
+      
 
           </Navbar.Collapse>
         </Container>

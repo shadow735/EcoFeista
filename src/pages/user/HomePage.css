@@ -1,0 +1,78 @@
+
+
+
+  /* Homepage Carousel */
+  .home-carousel {
+ 
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .home-carousel img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Section titles */
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+  }
+  
+  /* Product Cards */
+  .product-card, .category-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  .product-card:hover, .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Buttons */
+  .btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* Additional Styles - Customize further based on your design preferences */
+  /* Add styles for different sections, typography, links, forms, and more. */
+  
+  /* Example of styling a specific class */
+  .my-special-section {
+    background-color: #f9f9f9;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  /* Style links */
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

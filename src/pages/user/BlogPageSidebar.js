@@ -58,7 +58,7 @@ const BlogSidebar = () => {
 
         <div
           className={currentTab === 'tab5' ? 'link-active' : 'link-inactive'}
-          onClick={() => handleLinkClick('tab5')}
+          onClick={() => handleLinkClick('tab7')}
         >
           Holi
         </div>

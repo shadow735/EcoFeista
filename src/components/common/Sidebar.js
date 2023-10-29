@@ -7,14 +7,7 @@ const Sidebar = () => {
     <div className="StyledDashboard">
       <div className="SideNav">
 
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active" : "link-inactive"
-          }
-          to="/admin"
-        >
-          Summary
-        </NavLink>
+
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"

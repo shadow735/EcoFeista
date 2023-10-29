@@ -117,7 +117,26 @@ router.get('/api/carts', async (req, res) => {
 });
 
 
+// Add this route to your Express server code
+router.post('/delete-cart', async (req, res) => {
+  try {
+    // Check if the cart exists
+    if (!cartId) {
+      return res.status(404).json({ error: 'Cart not found' });
+    }
 
+    // Find the cart by ID and remove it from the database
+    await Cart.findByIdAndRemove(cartId);
+
+    // Set cartId to null to indicate that the cart has been deleted
+    cartId = null;
+
+    res.json({ message: 'Cart deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting cart:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 module.exports = router;

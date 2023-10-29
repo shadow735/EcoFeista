@@ -55,3 +55,21 @@
     font-weight: normal;
   }
   
+
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-table th,
+  .order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Add margin to rows for vertical spacing */
+  .order-table tbody tr {
+    margin-bottom: 20px; /* Adjust the margin value as needed */
+  }
+  

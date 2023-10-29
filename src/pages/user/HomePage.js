@@ -1,38 +1,93 @@
+// HomePage.js
 import React from 'react';
-import { Carousel } from 'react-bootstrap'; // Import Carousel component
-import { Link } from 'react-router-dom'; // Import Link component from your router library
-import downloadImage from './aa.jpg'; // Import the image
-
+import { Carousel, Card, Button, Row, Col, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './HomePage.css'; // Import your custom CSS file
+import downloadImage from '../../images/homepage.png'; // Import the image
+import p1 from '../../images/1 (1).jpg'; // Import the image
+import p2 from '../../images/1 (7).jpg'; // Import the image
+import p3 from '../../images/1 (8).jpg'; // Import the image
+import p4 from '../../images/1 (11).jpg'; // Import the image
+import p5 from '../../images/1 (15).jpg'; // Import the image
+import p6 from '../../images/1 (23).jpg'; // Import the image
 function HomePage() {
+
+  const topSellingProducts = [
+    { id: 1, name: 'Puspshala Agarbatti', price: 'Rs : 80', image: p1 },
+    { id: 2, name: 'HandBag', price: 'Rs : 450', image: p2 },
+    { id: 3, name: 'Lavander Agarbatti', price: 'Rs : 80', image: p3 },
+    // Add more products as needed
+  ];
+
+  // Dummy data for new arrivals
+  const newArrivalProducts = [
+    { id: 7, name: 'Ganesh Idol', price: 'Rs : 150', image: p4 },
+    { id: 8, name: 'Palm Leaf Plates', price: 'Rs : 80', image: p5 },
+    { id: 9, name: 'Organic Gulal', price: 'Rs : 200', image: p6 },
+    // Add more new arrival products as needed
+  ];
+
+
+
   return (
     <div>
-      <Carousel>
+      <Carousel className="home-carousel">
         <Carousel.Item>
           <img
             src={downloadImage}
             alt="First slide"
             className="d-block w-100 max-height-image"
-            style={{ maxHeight: '600px' }}
+            style={{ maxHeight: '480px' }}
           />
-          <Carousel.Caption className="text-center">
-            <h3 style={attractiveText}>EcoFiestaFinds</h3>
-            <Link to="#" className="btn btn-primary btn-lg rounded-pill my-3 animated-btn">
-              Buy Product
-            </Link>
-          </Carousel.Caption>
         </Carousel.Item>
-        {/* Add more Carousel.Items as needed */}
+
       </Carousel>
+
+      <Container className="my-5">
+        <h2 className="section-title">Top Selling Products</h2>
+        <Row>
+          {topSellingProducts.map((product) => (
+            <Col key={product.id} lg={4} md={6} sm={12} className="mb-4">
+              <Card className="product-card">
+                <Card.Img variant="top" src={product.image}
+
+                />
+                <Card.Body>
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>{product.price}</Card.Text>
+                  <Link to="/products">
+                    <Button variant="primary">View Details</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      <Container className="my-5">
+        <h2 className="section-title">New Arrivals</h2>
+        <Row>
+          {newArrivalProducts.map((product) => (
+            <Col key={product.id} lg={4} md={6} sm={12} className="mb-4">
+              <Card className="product-card">
+                <Card.Img variant="top" src={product.image} />
+                <Card.Body>
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>{product.price}</Card.Text>
+                  <Link to="/products">
+                    <Button variant="primary">View Details</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
     </div>
   );
 }
 
-// Define a style object for attractive text
-const attractiveText = {
-  color: 'white', // Change the text color to blue
-  fontSize: '5rem',  // Font size
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Text shadow
-  // Add any other styles you prefer
-};
 
 export default HomePage;

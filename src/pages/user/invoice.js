@@ -89,18 +89,14 @@ const InvoiceDocument = ({ name,totalAmount, paymentMethod, items }) => (
     </Page>
   </Document>
 );
-
-
 function Invoice() {
-
-
   const [customer, setCustomer] = useState({
     name: '',
     paymentMethod: '',
     totalAmount: '',
   });
 
-  const [cartItems, setCartItems] = useState([]);
+  const [orderItems, setOrderItems] = useState([]);
 
   useEffect(() => {
     // Fetch customer information from the orders API
@@ -111,30 +107,17 @@ function Invoice() {
         if (orders.length > 0) {
           const latestOrder = orders[orders.length - 1]; // Select the last order
           setCustomer({
-            name: latestOrder.name,
+            name: latestOrder.customer.name,
             totalAmount: latestOrder.totalAmount,
             paymentMethod: latestOrder.paymentMethod,
           });
+          setOrderItems(latestOrder.items); // Set the order items
         }
       })
       .catch((error) => {
         console.error('Error fetching order data:', error);
       });
-  
-    fetchCartContent();
   }, []);
-  
-  
-      const fetchCartContent = async () => {
-        try {
-          const response = await axios.get('http://localhost:8000/cart/get-cart-content');
-          if (response.data && response.data.items) {
-            setCartItems(response.data.items);
-          }
-        } catch (error) {
-          console.error('Error fetching cart content:', error);
-        }
-      };
 
   const handleDownload = async () => {
     try {
@@ -143,8 +126,7 @@ function Invoice() {
         name={customer.name}
         paymentMethod={customer.paymentMethod}
         totalAmount={customer.totalAmount}
-        items={cartItems}
-     
+        items={orderItems} // Fix: Use orderItems here
       />
     ).toBlob();
 
@@ -159,21 +141,13 @@ function Invoice() {
     } catch (error) {
       console.error('Error generating or downloading the PDF:', error);
     }
-  };
+  }
 
   return (
     <section className="invoice">
       <div className="custom-container">
         <div className="header">
-          <div className="logo">
-            <img
-            
-              alt="Logo"
-              width="100"
-              height="60"
-              className="logo-img"
-            />
-          </div>
+        
           <div className="title">
             <h1 className="fw-bold text-primary">Thank you for your purchase!</h1>
           </div>
@@ -207,14 +181,14 @@ function Invoice() {
                   </tr>
                 </thead>
                 <tbody>
-                {cartItems.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.productName}</td>
-                      <td>{item.quantity}</td>
-                      <td>{item.productPrice}</td>
-                    </tr>
-                  ))}
-                </tbody>
+      {orderItems.map((item, index) => (
+        <tr key={index}>
+          <td>{item.productName}</td>
+          <td>{item.quantity}</td>
+          <td>{item.productPrice}</td>
+        </tr>
+      ))}
+    </tbody>
               </table>
             </div>
           </div>

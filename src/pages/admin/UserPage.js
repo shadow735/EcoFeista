@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import '../../css/UserPage.css'
+import '../../css/UserPage.css';
+
 function UserPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // Fetch user data from the API when the component mounts
-    fetch('http://localhost:8000/user')
+    fetch('http://localhost:8000/users') // Update the URL to match the backend route
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error(error));

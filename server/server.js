@@ -14,7 +14,6 @@ const Cart = require('./models/Cart');
 
 // Import routes
 const userAuthRoutes = require('./routes/userAuth');
-const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const adminAuthRoutes = require('./routes/adminAuth');
@@ -40,7 +39,6 @@ connectToDatabase().catch((err) => {
 
 // Define routes
 app.use('/admin', adminAuthRoutes); // Admin authentication routes
-app.use('/user', userRoutes); // User routes
 app.use('/contact', contactRoutes); // Contact routes
 app.use('/products', productRoutes); // Product routes
 app.use('/user', userAuthRoutes); // User authentication routes

@@ -30,7 +30,7 @@ function Login() {
       if (response.status === 200) {
         // Redirect to /admin after successful login
         window.alert('Successful Login')
-        navigate("/admin");
+        navigate("/admin/orders");
       } else {
         setError("Login failed. Please check your credentials.");
         window.alert('Login Failed')
