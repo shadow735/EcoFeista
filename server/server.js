@@ -2,25 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
-const { connectToDatabase } = require('./config/config');
 const mongoose = require('mongoose');
 const path = require('path');
-
-// Import models
-const User = require('./models/User');
-const Contact = require('./models/Contact');
-const Blog = require('./models/Blog');
-const Cart = require('./models/Cart');
-
-// Import routes
-const userAuthRoutes = require('./routes/userAuth');
-const productRoutes = require('./routes/productRoutes');
-const contactRoutes = require('./routes/contactRoutes');
-const adminAuthRoutes = require('./routes/adminAuth');
-const cartRoutes = require('./routes/cart');
-const Blogs = require('./routes/Blog');
-const imageRoute = require('./routes/image');
-const orderRoutes = require('./routes/orderRoutes');
 
 // Middleware
 app.use(cors());
@@ -33,11 +16,36 @@ app.use(bodyParser.json({ limit: '50mb' })); // Increase the payload limit to 50
 app.use('/api/images/uploads', express.static(path.join(__dirname, '../data/images')));
 
 // Connect to the database
-connectToDatabase().catch((err) => {
-  console.error('Database connection error:', err);
-});
+async function connectToDatabase() {
+  try {
+    await mongoose.connect('#Your Database URL of Mongo Db', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000, // Increase server selection timeout if needed
+      socketTimeoutMS: 45000, // Increase socket timeout if needed
+    });
+    console.log('Connected to the database');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+  }
+}
 
 // Define routes
+// Import models
+const User = require('./models/User');
+const Contact = require('./models/Contact');
+const Blog = require('./models/Blog');
+const Cart = require('./models/Cart');
+
+const userAuthRoutes = require('./routes/userAuth');
+const productRoutes = require('./routes/productRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+const adminAuthRoutes = require('./routes/adminAuth');
+const cartRoutes = require('./routes/cart');
+const Blogs = require('./routes/Blog');
+const imageRoute = require('./routes/image');
+const orderRoutes = require('./routes/orderRoutes');
+
 app.use('/admin', adminAuthRoutes); // Admin authentication routes
 app.use('/contact', contactRoutes); // Contact routes
 app.use('/products', productRoutes); // Product routes
@@ -92,5 +100,6 @@ app.post('/upload', (req, res) => {
 // Start your server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
+  connectToDatabase();
 });
