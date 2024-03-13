@@ -1,20 +1,19 @@
-
-To run the code download the Docker desktop and run the docker 
-
-in the root directory run this 2 command in the terminal
+Clone the Project 
 
 
+1) In the root directory terminal run this command 
 
+command  :          npm install 
 
+command : npm start
 
-1st Command :       docker build -t my-node-app .
+In the server directory ternimal run this command  (open new ternimal)
 
+command :         npm install
 
-2nd Command :      docker run -p 8000:8000 my-node-app
+command : nodemon server.js 
 
-
-
-
+(if there is error of nodemon then run this command : npm install nodemon ) and again run nodemon server.js 
 
 
 
