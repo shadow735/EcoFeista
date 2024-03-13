@@ -18,7 +18,7 @@ app.use('/api/images/uploads', express.static(path.join(__dirname, '../data/imag
 // Connect to the database
 async function connectToDatabase() {
   try {
-    await mongoose.connect('#Your Database URL of Mongo Db', {
+    await mongoose.connect('mongodb+srv://akash:akash@cluster0.gec5km8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000, // Increase server selection timeout if needed
@@ -98,7 +98,7 @@ app.post('/upload', (req, res) => {
 });
 
 // Start your server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.NODE_APP_PORT || 8000; // Change from process.env.PORT to process.env.NODE_APP_PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   connectToDatabase();
